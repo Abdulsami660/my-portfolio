@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Experience;
+use Cache;
 use Illuminate\Http\JsonResponse;
 
 class ExperienceController extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json(Experience::orderBy('sort_order')->get());
+        $experiences = Cache::rememberForever('api.experiences.index', function () {
+            return Experience::orderBy('sort_order')->get();
+        });
+        return response()->json($experiences);
     }
 }

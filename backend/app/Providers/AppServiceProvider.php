@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App;
+use Artisan;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if (App::environment('production') && !file_exists(public_path('storage'))) {
+            try {
+                Artisan::call('storage:link');
+            } catch (\Exception $e) {
+                // Fails silently if permissions restrict it during runtime optimization
+            }
+        }
     }
 }

@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
+use Cache;
 use Illuminate\Http\JsonResponse;
 
 class TestimonialController extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json(Testimonial::orderBy('sort_order')->get());
+        $testimonials = Cache::rememberForever('api.testimonials.index', function () {
+            return Testimonial::orderBy('sort_order')->get();
+        });
+        return response()->json($testimonials);
     }
 }
