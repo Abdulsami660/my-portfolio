@@ -12,7 +12,7 @@ class SkillController extends Controller
     public function index(): JsonResponse
     {
         $skills = Cache::rememberForever('api.skills.index', function () {
-            return Skill::orderBy('sort_order')->get();
+            return Skill::orderBy('sort_order')->get()->toArray();
         });
         return response()->json($skills);
     }

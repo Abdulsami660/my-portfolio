@@ -12,7 +12,7 @@ class ExperienceController extends Controller
     public function index(): JsonResponse
     {
         $experiences = Cache::rememberForever('api.experiences.index', function () {
-            return Experience::orderBy('sort_order')->get();
+            return Experience::orderBy('sort_order')->get()->toArray();
         });
         return response()->json($experiences);
     }

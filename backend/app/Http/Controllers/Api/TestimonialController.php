@@ -12,7 +12,7 @@ class TestimonialController extends Controller
     public function index(): JsonResponse
     {
         $testimonials = Cache::rememberForever('api.testimonials.index', function () {
-            return Testimonial::orderBy('sort_order')->get();
+            return Testimonial::orderBy('sort_order')->get()->toArray();
         });
         return response()->json($testimonials);
     }

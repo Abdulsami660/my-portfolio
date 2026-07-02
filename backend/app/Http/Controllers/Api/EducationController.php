@@ -12,7 +12,7 @@ class EducationController extends Controller
     public function index(): JsonResponse
     {
         $educations = Cache::rememberForever('api.educations.index', function () {
-            return Education::orderBy('sort_order')->get();
+            return Education::orderBy('sort_order')->get()->toArray();
         });
         return response()->json($educations);
     }
