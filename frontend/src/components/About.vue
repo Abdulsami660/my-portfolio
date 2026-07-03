@@ -30,7 +30,7 @@ const SOCIALS = [
             <div class="absolute -bottom-3 -left-3 w-full h-full bg-orange" style="opacity: 0.15"></div>
             <div class="absolute -bottom-3 -left-3 w-full h-10 bg-orange"></div>
             <div class="relative overflow-hidden" style="height: 500px">
-              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&h=900&fit=crop&auto=format"
+              <img src="/abdul-sami.png"
                 alt="Jordan Reeves portrait" class="w-full h-full object-cover" style="filter: saturate(0.8)" />
             </div>
           </div>

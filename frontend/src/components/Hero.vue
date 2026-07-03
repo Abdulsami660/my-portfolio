@@ -95,7 +95,7 @@ function scrollTo(id) {
             <div class="absolute -top-4 -right-4 w-full h-12 bg-orange"></div>
             <div class="relative overflow-hidden" style="width: 380px; height: 480px">
               <img
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=760&h=960&fit=crop&auto=format"
+                src="/abdul-sami.png"
                 alt="Abdul sami"
                 class="w-full h-full object-cover"
               />
